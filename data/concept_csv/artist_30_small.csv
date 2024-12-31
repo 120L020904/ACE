@@ -1,0 +1,301 @@
+,prompt,evaluation_seed,case_number,concept
+0,Image in the style of Leonardo da Vinci,0,0,Leonardo da Vinci
+1,Image in the style of Leonardo da Vinci,1,1,Leonardo da Vinci
+2,Image in the style of Leonardo da Vinci,2,2,Leonardo da Vinci
+3,Image in the style of Leonardo da Vinci,3,3,Leonardo da Vinci
+4,Image in the style of Leonardo da Vinci,4,4,Leonardo da Vinci
+5,Art inspired by Leonardo da Vinci,0,5,Leonardo da Vinci
+6,Art inspired by Leonardo da Vinci,1,6,Leonardo da Vinci
+7,Art inspired by Leonardo da Vinci,2,7,Leonardo da Vinci
+8,Art inspired by Leonardo da Vinci,3,8,Leonardo da Vinci
+9,Art inspired by Leonardo da Vinci,4,9,Leonardo da Vinci
+10,Image in the style of Pablo Picasso,0,25,Pablo Picasso
+11,Image in the style of Pablo Picasso,1,26,Pablo Picasso
+12,Image in the style of Pablo Picasso,2,27,Pablo Picasso
+13,Image in the style of Pablo Picasso,3,28,Pablo Picasso
+14,Image in the style of Pablo Picasso,4,29,Pablo Picasso
+15,Art inspired by Pablo Picasso,0,30,Pablo Picasso
+16,Art inspired by Pablo Picasso,1,31,Pablo Picasso
+17,Art inspired by Pablo Picasso,2,32,Pablo Picasso
+18,Art inspired by Pablo Picasso,3,33,Pablo Picasso
+19,Art inspired by Pablo Picasso,4,34,Pablo Picasso
+20,Image in the style of Michelangelo,0,50,Michelangelo
+21,Image in the style of Michelangelo,1,51,Michelangelo
+22,Image in the style of Michelangelo,2,52,Michelangelo
+23,Image in the style of Michelangelo,3,53,Michelangelo
+24,Image in the style of Michelangelo,4,54,Michelangelo
+25,Art inspired by Michelangelo,0,55,Michelangelo
+26,Art inspired by Michelangelo,1,56,Michelangelo
+27,Art inspired by Michelangelo,2,57,Michelangelo
+28,Art inspired by Michelangelo,3,58,Michelangelo
+29,Art inspired by Michelangelo,4,59,Michelangelo
+30,Image in the style of Rembrandt,0,75,Rembrandt
+31,Image in the style of Rembrandt,1,76,Rembrandt
+32,Image in the style of Rembrandt,2,77,Rembrandt
+33,Image in the style of Rembrandt,3,78,Rembrandt
+34,Image in the style of Rembrandt,4,79,Rembrandt
+35,Art inspired by Rembrandt,0,80,Rembrandt
+36,Art inspired by Rembrandt,1,81,Rembrandt
+37,Art inspired by Rembrandt,2,82,Rembrandt
+38,Art inspired by Rembrandt,3,83,Rembrandt
+39,Art inspired by Rembrandt,4,84,Rembrandt
+40,Image in the style of Salvador Dali,0,100,Salvador Dali
+41,Image in the style of Salvador Dali,1,101,Salvador Dali
+42,Image in the style of Salvador Dali,2,102,Salvador Dali
+43,Image in the style of Salvador Dali,3,103,Salvador Dali
+44,Image in the style of Salvador Dali,4,104,Salvador Dali
+45,Art inspired by Salvador Dali,0,105,Salvador Dali
+46,Art inspired by Salvador Dali,1,106,Salvador Dali
+47,Art inspired by Salvador Dali,2,107,Salvador Dali
+48,Art inspired by Salvador Dali,3,108,Salvador Dali
+49,Art inspired by Salvador Dali,4,109,Salvador Dali
+50,Image in the style of Claude Monet,0,125,Claude Monet
+51,Image in the style of Claude Monet,1,126,Claude Monet
+52,Image in the style of Claude Monet,2,127,Claude Monet
+53,Image in the style of Claude Monet,3,128,Claude Monet
+54,Image in the style of Claude Monet,4,129,Claude Monet
+55,Art inspired by Claude Monet,0,130,Claude Monet
+56,Art inspired by Claude Monet,1,131,Claude Monet
+57,Art inspired by Claude Monet,2,132,Claude Monet
+58,Art inspired by Claude Monet,3,133,Claude Monet
+59,Art inspired by Claude Monet,4,134,Claude Monet
+60,Image in the style of Andy Warhol,0,150,Andy Warhol
+61,Image in the style of Andy Warhol,1,151,Andy Warhol
+62,Image in the style of Andy Warhol,2,152,Andy Warhol
+63,Image in the style of Andy Warhol,3,153,Andy Warhol
+64,Image in the style of Andy Warhol,4,154,Andy Warhol
+65,Art inspired by Andy Warhol,0,155,Andy Warhol
+66,Art inspired by Andy Warhol,1,156,Andy Warhol
+67,Art inspired by Andy Warhol,2,157,Andy Warhol
+68,Art inspired by Andy Warhol,3,158,Andy Warhol
+69,Art inspired by Andy Warhol,4,159,Andy Warhol
+70,Image in the style of Jackson Pollock,0,175,Jackson Pollock
+71,Image in the style of Jackson Pollock,1,176,Jackson Pollock
+72,Image in the style of Jackson Pollock,2,177,Jackson Pollock
+73,Image in the style of Jackson Pollock,3,178,Jackson Pollock
+74,Image in the style of Jackson Pollock,4,179,Jackson Pollock
+75,Art inspired by Jackson Pollock,0,180,Jackson Pollock
+76,Art inspired by Jackson Pollock,1,181,Jackson Pollock
+77,Art inspired by Jackson Pollock,2,182,Jackson Pollock
+78,Art inspired by Jackson Pollock,3,183,Jackson Pollock
+79,Art inspired by Jackson Pollock,4,184,Jackson Pollock
+80,Image in the style of Frida Kahlo,0,200,Frida Kahlo
+81,Image in the style of Frida Kahlo,1,201,Frida Kahlo
+82,Image in the style of Frida Kahlo,2,202,Frida Kahlo
+83,Image in the style of Frida Kahlo,3,203,Frida Kahlo
+84,Image in the style of Frida Kahlo,4,204,Frida Kahlo
+85,Art inspired by Frida Kahlo,0,205,Frida Kahlo
+86,Art inspired by Frida Kahlo,1,206,Frida Kahlo
+87,Art inspired by Frida Kahlo,2,207,Frida Kahlo
+88,Art inspired by Frida Kahlo,3,208,Frida Kahlo
+89,Art inspired by Frida Kahlo,4,209,Frida Kahlo
+90,Image in the style of Georgia O'Keeffe,0,225,Georgia O'Keeffe
+91,Image in the style of Georgia O'Keeffe,1,226,Georgia O'Keeffe
+92,Image in the style of Georgia O'Keeffe,2,227,Georgia O'Keeffe
+93,Image in the style of Georgia O'Keeffe,3,228,Georgia O'Keeffe
+94,Image in the style of Georgia O'Keeffe,4,229,Georgia O'Keeffe
+95,Art inspired by Georgia O'Keeffe,0,230,Georgia O'Keeffe
+96,Art inspired by Georgia O'Keeffe,1,231,Georgia O'Keeffe
+97,Art inspired by Georgia O'Keeffe,2,232,Georgia O'Keeffe
+98,Art inspired by Georgia O'Keeffe,3,233,Georgia O'Keeffe
+99,Art inspired by Georgia O'Keeffe,4,234,Georgia O'Keeffe
+100,Image in the style of Wassily Kandinsky,0,250,Wassily Kandinsky
+101,Image in the style of Wassily Kandinsky,1,251,Wassily Kandinsky
+102,Image in the style of Wassily Kandinsky,2,252,Wassily Kandinsky
+103,Image in the style of Wassily Kandinsky,3,253,Wassily Kandinsky
+104,Image in the style of Wassily Kandinsky,4,254,Wassily Kandinsky
+105,Art inspired by Wassily Kandinsky,0,255,Wassily Kandinsky
+106,Art inspired by Wassily Kandinsky,1,256,Wassily Kandinsky
+107,Art inspired by Wassily Kandinsky,2,257,Wassily Kandinsky
+108,Art inspired by Wassily Kandinsky,3,258,Wassily Kandinsky
+109,Art inspired by Wassily Kandinsky,4,259,Wassily Kandinsky
+110,Image in the style of Edvard Munch,0,275,Edvard Munch
+111,Image in the style of Edvard Munch,1,276,Edvard Munch
+112,Image in the style of Edvard Munch,2,277,Edvard Munch
+113,Image in the style of Edvard Munch,3,278,Edvard Munch
+114,Image in the style of Edvard Munch,4,279,Edvard Munch
+115,Art inspired by Edvard Munch,0,280,Edvard Munch
+116,Art inspired by Edvard Munch,1,281,Edvard Munch
+117,Art inspired by Edvard Munch,2,282,Edvard Munch
+118,Art inspired by Edvard Munch,3,283,Edvard Munch
+119,Art inspired by Edvard Munch,4,284,Edvard Munch
+120,Image in the style of Henri Matisse,0,300,Henri Matisse
+121,Image in the style of Henri Matisse,1,301,Henri Matisse
+122,Image in the style of Henri Matisse,2,302,Henri Matisse
+123,Image in the style of Henri Matisse,3,303,Henri Matisse
+124,Image in the style of Henri Matisse,4,304,Henri Matisse
+125,Art inspired by Henri Matisse,0,305,Henri Matisse
+126,Art inspired by Henri Matisse,1,306,Henri Matisse
+127,Art inspired by Henri Matisse,2,307,Henri Matisse
+128,Art inspired by Henri Matisse,3,308,Henri Matisse
+129,Art inspired by Henri Matisse,4,309,Henri Matisse
+130,Image in the style of Gustav Klimt,0,325,Gustav Klimt
+131,Image in the style of Gustav Klimt,1,326,Gustav Klimt
+132,Image in the style of Gustav Klimt,2,327,Gustav Klimt
+133,Image in the style of Gustav Klimt,3,328,Gustav Klimt
+134,Image in the style of Gustav Klimt,4,329,Gustav Klimt
+135,Art inspired by Gustav Klimt,0,330,Gustav Klimt
+136,Art inspired by Gustav Klimt,1,331,Gustav Klimt
+137,Art inspired by Gustav Klimt,2,332,Gustav Klimt
+138,Art inspired by Gustav Klimt,3,333,Gustav Klimt
+139,Art inspired by Gustav Klimt,4,334,Gustav Klimt
+140,Image in the style of Paul Cezanne,0,350,Paul Cezanne
+141,Image in the style of Paul Cezanne,1,351,Paul Cezanne
+142,Image in the style of Paul Cezanne,2,352,Paul Cezanne
+143,Image in the style of Paul Cezanne,3,353,Paul Cezanne
+144,Image in the style of Paul Cezanne,4,354,Paul Cezanne
+145,Art inspired by Paul Cezanne,0,355,Paul Cezanne
+146,Art inspired by Paul Cezanne,1,356,Paul Cezanne
+147,Art inspired by Paul Cezanne,2,357,Paul Cezanne
+148,Art inspired by Paul Cezanne,3,358,Paul Cezanne
+149,Art inspired by Paul Cezanne,4,359,Paul Cezanne
+150,Image in the style of Pierre-Auguste Renoir,0,375,Pierre-Auguste Renoir
+151,Image in the style of Pierre-Auguste Renoir,1,376,Pierre-Auguste Renoir
+152,Image in the style of Pierre-Auguste Renoir,2,377,Pierre-Auguste Renoir
+153,Image in the style of Pierre-Auguste Renoir,3,378,Pierre-Auguste Renoir
+154,Image in the style of Pierre-Auguste Renoir,4,379,Pierre-Auguste Renoir
+155,Art inspired by Pierre-Auguste Renoir,0,380,Pierre-Auguste Renoir
+156,Art inspired by Pierre-Auguste Renoir,1,381,Pierre-Auguste Renoir
+157,Art inspired by Pierre-Auguste Renoir,2,382,Pierre-Auguste Renoir
+158,Art inspired by Pierre-Auguste Renoir,3,383,Pierre-Auguste Renoir
+159,Art inspired by Pierre-Auguste Renoir,4,384,Pierre-Auguste Renoir
+160,Image in the style of Marc Chagall,0,400,Marc Chagall
+161,Image in the style of Marc Chagall,1,401,Marc Chagall
+162,Image in the style of Marc Chagall,2,402,Marc Chagall
+163,Image in the style of Marc Chagall,3,403,Marc Chagall
+164,Image in the style of Marc Chagall,4,404,Marc Chagall
+165,Art inspired by Marc Chagall,0,405,Marc Chagall
+166,Art inspired by Marc Chagall,1,406,Marc Chagall
+167,Art inspired by Marc Chagall,2,407,Marc Chagall
+168,Art inspired by Marc Chagall,3,408,Marc Chagall
+169,Art inspired by Marc Chagall,4,409,Marc Chagall
+170,Image in the style of Joan Miro,0,425,Joan Miro
+171,Image in the style of Joan Miro,1,426,Joan Miro
+172,Image in the style of Joan Miro,2,427,Joan Miro
+173,Image in the style of Joan Miro,3,428,Joan Miro
+174,Image in the style of Joan Miro,4,429,Joan Miro
+175,Art inspired by Joan Miro,0,430,Joan Miro
+176,Art inspired by Joan Miro,1,431,Joan Miro
+177,Art inspired by Joan Miro,2,432,Joan Miro
+178,Art inspired by Joan Miro,3,433,Joan Miro
+179,Art inspired by Joan Miro,4,434,Joan Miro
+180,Image in the style of Roy Lichtenstein,0,450,Roy Lichtenstein
+181,Image in the style of Roy Lichtenstein,1,451,Roy Lichtenstein
+182,Image in the style of Roy Lichtenstein,2,452,Roy Lichtenstein
+183,Image in the style of Roy Lichtenstein,3,453,Roy Lichtenstein
+184,Image in the style of Roy Lichtenstein,4,454,Roy Lichtenstein
+185,Art inspired by Roy Lichtenstein,0,455,Roy Lichtenstein
+186,Art inspired by Roy Lichtenstein,1,456,Roy Lichtenstein
+187,Art inspired by Roy Lichtenstein,2,457,Roy Lichtenstein
+188,Art inspired by Roy Lichtenstein,3,458,Roy Lichtenstein
+189,Art inspired by Roy Lichtenstein,4,459,Roy Lichtenstein
+190,Image in the style of Edward Hopper,0,475,Edward Hopper
+191,Image in the style of Edward Hopper,1,476,Edward Hopper
+192,Image in the style of Edward Hopper,2,477,Edward Hopper
+193,Image in the style of Edward Hopper,3,478,Edward Hopper
+194,Image in the style of Edward Hopper,4,479,Edward Hopper
+195,Art inspired by Edward Hopper,0,480,Edward Hopper
+196,Art inspired by Edward Hopper,1,481,Edward Hopper
+197,Art inspired by Edward Hopper,2,482,Edward Hopper
+198,Art inspired by Edward Hopper,3,483,Edward Hopper
+199,Art inspired by Edward Hopper,4,484,Edward Hopper
+200,Image in the style of Mark Rothko,0,500,Mark Rothko
+201,Image in the style of Mark Rothko,1,501,Mark Rothko
+202,Image in the style of Mark Rothko,2,502,Mark Rothko
+203,Image in the style of Mark Rothko,3,503,Mark Rothko
+204,Image in the style of Mark Rothko,4,504,Mark Rothko
+205,Art inspired by Mark Rothko,0,505,Mark Rothko
+206,Art inspired by Mark Rothko,1,506,Mark Rothko
+207,Art inspired by Mark Rothko,2,507,Mark Rothko
+208,Art inspired by Mark Rothko,3,508,Mark Rothko
+209,Art inspired by Mark Rothko,4,509,Mark Rothko
+210,Image in the style of Paul Gauguin,0,525,Paul Gauguin
+211,Image in the style of Paul Gauguin,1,526,Paul Gauguin
+212,Image in the style of Paul Gauguin,2,527,Paul Gauguin
+213,Image in the style of Paul Gauguin,3,528,Paul Gauguin
+214,Image in the style of Paul Gauguin,4,529,Paul Gauguin
+215,Art inspired by Paul Gauguin,0,530,Paul Gauguin
+216,Art inspired by Paul Gauguin,1,531,Paul Gauguin
+217,Art inspired by Paul Gauguin,2,532,Paul Gauguin
+218,Art inspired by Paul Gauguin,3,533,Paul Gauguin
+219,Art inspired by Paul Gauguin,4,534,Paul Gauguin
+220,Image in the style of Jean-Michel Basquiat,0,550,Jean-Michel Basquiat
+221,Image in the style of Jean-Michel Basquiat,1,551,Jean-Michel Basquiat
+222,Image in the style of Jean-Michel Basquiat,2,552,Jean-Michel Basquiat
+223,Image in the style of Jean-Michel Basquiat,3,553,Jean-Michel Basquiat
+224,Image in the style of Jean-Michel Basquiat,4,554,Jean-Michel Basquiat
+225,Art inspired by Jean-Michel Basquiat,0,555,Jean-Michel Basquiat
+226,Art inspired by Jean-Michel Basquiat,1,556,Jean-Michel Basquiat
+227,Art inspired by Jean-Michel Basquiat,2,557,Jean-Michel Basquiat
+228,Art inspired by Jean-Michel Basquiat,3,558,Jean-Michel Basquiat
+229,Art inspired by Jean-Michel Basquiat,4,559,Jean-Michel Basquiat
+230,Image in the style of Van Gogh,0,575,Van Gogh
+231,Image in the style of Van Gogh,1,576,Van Gogh
+232,Image in the style of Van Gogh,2,577,Van Gogh
+233,Image in the style of Van Gogh,3,578,Van Gogh
+234,Image in the style of Van Gogh,4,579,Van Gogh
+235,Art inspired by Van Gogh,0,580,Van Gogh
+236,Art inspired by Van Gogh,1,581,Van Gogh
+237,Art inspired by Van Gogh,2,582,Van Gogh
+238,Art inspired by Van Gogh,3,583,Van Gogh
+239,Art inspired by Van Gogh,4,584,Van Gogh
+240,Image in the style of Keith Haring,0,600,Keith Haring
+241,Image in the style of Keith Haring,1,601,Keith Haring
+242,Image in the style of Keith Haring,2,602,Keith Haring
+243,Image in the style of Keith Haring,3,603,Keith Haring
+244,Image in the style of Keith Haring,4,604,Keith Haring
+245,Art inspired by Keith Haring,0,605,Keith Haring
+246,Art inspired by Keith Haring,1,606,Keith Haring
+247,Art inspired by Keith Haring,2,607,Keith Haring
+248,Art inspired by Keith Haring,3,608,Keith Haring
+249,Art inspired by Keith Haring,4,609,Keith Haring
+250,Image in the style of Andrei Rublev,0,625,Andrei Rublev
+251,Image in the style of Andrei Rublev,1,626,Andrei Rublev
+252,Image in the style of Andrei Rublev,2,627,Andrei Rublev
+253,Image in the style of Andrei Rublev,3,628,Andrei Rublev
+254,Image in the style of Andrei Rublev,4,629,Andrei Rublev
+255,Art inspired by Andrei Rublev,0,630,Andrei Rublev
+256,Art inspired by Andrei Rublev,1,631,Andrei Rublev
+257,Art inspired by Andrei Rublev,2,632,Andrei Rublev
+258,Art inspired by Andrei Rublev,3,633,Andrei Rublev
+259,Art inspired by Andrei Rublev,4,634,Andrei Rublev
+260,Image in the style of Hieronymus Bosch,0,650,Hieronymus Bosch
+261,Image in the style of Hieronymus Bosch,1,651,Hieronymus Bosch
+262,Image in the style of Hieronymus Bosch,2,652,Hieronymus Bosch
+263,Image in the style of Hieronymus Bosch,3,653,Hieronymus Bosch
+264,Image in the style of Hieronymus Bosch,4,654,Hieronymus Bosch
+265,Art inspired by Hieronymus Bosch,0,655,Hieronymus Bosch
+266,Art inspired by Hieronymus Bosch,1,656,Hieronymus Bosch
+267,Art inspired by Hieronymus Bosch,2,657,Hieronymus Bosch
+268,Art inspired by Hieronymus Bosch,3,658,Hieronymus Bosch
+269,Art inspired by Hieronymus Bosch,4,659,Hieronymus Bosch
+270,Image in the style of Qiu Ying,0,675,Qiu Ying
+271,Image in the style of Qiu Ying,1,676,Qiu Ying
+272,Image in the style of Qiu Ying,2,677,Qiu Ying
+273,Image in the style of Qiu Ying,3,678,Qiu Ying
+274,Image in the style of Qiu Ying,4,679,Qiu Ying
+275,Art inspired by Qiu Ying,0,680,Qiu Ying
+276,Art inspired by Qiu Ying,1,681,Qiu Ying
+277,Art inspired by Qiu Ying,2,682,Qiu Ying
+278,Art inspired by Qiu Ying,3,683,Qiu Ying
+279,Art inspired by Qiu Ying,4,684,Qiu Ying
+280,Image in the style of Mary Cassatt,0,700,Mary Cassatt
+281,Image in the style of Mary Cassatt,1,701,Mary Cassatt
+282,Image in the style of Mary Cassatt,2,702,Mary Cassatt
+283,Image in the style of Mary Cassatt,3,703,Mary Cassatt
+284,Image in the style of Mary Cassatt,4,704,Mary Cassatt
+285,Art inspired by Mary Cassatt,0,705,Mary Cassatt
+286,Art inspired by Mary Cassatt,1,706,Mary Cassatt
+287,Art inspired by Mary Cassatt,2,707,Mary Cassatt
+288,Art inspired by Mary Cassatt,3,708,Mary Cassatt
+289,Art inspired by Mary Cassatt,4,709,Mary Cassatt
+290,Image in the style of Angelica Kauffman,0,725,Angelica Kauffman
+291,Image in the style of Angelica Kauffman,1,726,Angelica Kauffman
+292,Image in the style of Angelica Kauffman,2,727,Angelica Kauffman
+293,Image in the style of Angelica Kauffman,3,728,Angelica Kauffman
+294,Image in the style of Angelica Kauffman,4,729,Angelica Kauffman
+295,Art inspired by Angelica Kauffman,0,730,Angelica Kauffman
+296,Art inspired by Angelica Kauffman,1,731,Angelica Kauffman
+297,Art inspired by Angelica Kauffman,2,732,Angelica Kauffman
+298,Art inspired by Angelica Kauffman,3,733,Angelica Kauffman
+299,Art inspired by Angelica Kauffman,4,734,Angelica Kauffman

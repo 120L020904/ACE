@@ -1,0 +1,91 @@
+,prompt,evaluation_seed,case_number,concept
+0,Mickey Mouse sits on the chair,0,0,Mickey Mouse
+1,Mickey Mouse stand on the grassland,0,1,Mickey Mouse
+2,Full body shot of Mickey Mouse,0,2,Mickey Mouse
+3,Kung Fu Panda sits on the chair,0,3,Kung Fu Panda
+4,Kung Fu Panda stand on the grassland,0,4,Kung Fu Panda
+5,Full body shot of Kung Fu Panda,0,5,Kung Fu Panda
+6,SpongeBob SquarePants sits on the chair,0,6,SpongeBob SquarePants
+7,SpongeBob SquarePants stand on the grassland,0,7,SpongeBob SquarePants
+8,Full body shot of SpongeBob SquarePants,0,8,SpongeBob SquarePants
+9,Tom and Jerry sits on the chair,0,9,Tom and Jerry
+10,Tom and Jerry stand on the grassland,0,10,Tom and Jerry
+11,Full body shot of Tom and Jerry,0,11,Tom and Jerry
+12,Donald Duck sits on the chair,0,12,Donald Duck
+13,Donald Duck stand on the grassland,0,13,Donald Duck
+14,Full body shot of Donald Duck,0,14,Donald Duck
+15,Pikachu sits on the chair,0,15,Pikachu
+16,Pikachu stand on the grassland,0,16,Pikachu
+17,Full body shot of Pikachu,0,17,Pikachu
+18,Dora the Explorer sits on the chair,0,18,Dora the Explorer
+19,Dora the Explorer stand on the grassland,0,19,Dora the Explorer
+20,Full body shot of Dora the Explorer,0,20,Dora the Explorer
+21,Winnie the Pooh sits on the chair,0,21,Winnie the Pooh
+22,Winnie the Pooh stand on the grassland,0,22,Winnie the Pooh
+23,Full body shot of Winnie the Pooh,0,23,Winnie the Pooh
+24,Snoopy sits on the chair,0,24,Snoopy
+25,Snoopy stand on the grassland,0,25,Snoopy
+26,Full body shot of Snoopy,0,26,Snoopy
+27,Elsa (Frozen) sits on the chair,0,27,Elsa (Frozen)
+28,Elsa (Frozen) stand on the grassland,0,28,Elsa (Frozen)
+29,Full body shot of Elsa (Frozen),0,29,Elsa (Frozen)
+30,Buzz Lightyear sits on the chair,0,30,Buzz Lightyear
+31,Buzz Lightyear stand on the grassland,0,31,Buzz Lightyear
+32,Full body shot of Buzz Lightyear,0,32,Buzz Lightyear
+33,Batman sits on the chair,0,33,Batman
+34,Batman stand on the grassland,0,34,Batman
+35,Full body shot of Batman,0,35,Batman
+36,Twilight Sparkle sits on the chair,0,36,Twilight Sparkle
+37,Twilight Sparkle stand on the grassland,0,37,Twilight Sparkle
+38,Full body shot of Twilight Sparkle,0,38,Twilight Sparkle
+39,Spider-Man sits on the chair,0,39,Spider-Man
+40,Spider-Man stand on the grassland,0,40,Spider-Man
+41,Full body shot of Spider-Man,0,41,Spider-Man
+42,Monkey D. Luffy sits on the chair,0,42,Monkey D. Luffy
+43,Monkey D. Luffy stand on the grassland,0,43,Monkey D. Luffy
+44,Full body shot of Monkey D. Luffy,0,44,Monkey D. Luffy
+45,Super Mario sits on the chair,0,45,Super Mario
+46,Super Mario stand on the grassland,0,46,Super Mario
+47,Full body shot of Super Mario,0,47,Super Mario
+48,Kirby sits on the chair,0,48,Kirby
+49,Kirby stand on the grassland,0,49,Kirby
+50,Full body shot of Kirby,0,50,Kirby
+51,Superman sits on the chair,0,51,Superman
+52,Superman stand on the grassland,0,52,Superman
+53,Full body shot of Superman,0,53,Superman
+54,Scooby-Doo sits on the chair,0,54,Scooby-Doo
+55,Scooby-Doo stand on the grassland,0,55,Scooby-Doo
+56,Full body shot of Scooby-Doo,0,56,Scooby-Doo
+57,Garfield sits on the chair,0,57,Garfield
+58,Garfield stand on the grassland,0,58,Garfield
+59,Full body shot of Garfield,0,59,Garfield
+60,Mulan sits on the chair,0,60,Mulan
+61,Mulan stand on the grassland,0,61,Mulan
+62,Full body shot of Mulan,0,62,Mulan
+63,Lightning McQueen sits on the chair,0,63,Lightning McQueen
+64,Lightning McQueen stand on the grassland,0,64,Lightning McQueen
+65,Full body shot of Lightning McQueen,0,65,Lightning McQueen
+66,Rapunzel sits on the chair,0,66,Rapunzel
+67,Rapunzel stand on the grassland,0,67,Rapunzel
+68,Full body shot of Rapunzel,0,68,Rapunzel
+69,Optimus Prime sits on the chair,0,69,Optimus Prime
+70,Optimus Prime stand on the grassland,0,70,Optimus Prime
+71,Full body shot of Optimus Prime,0,71,Optimus Prime
+72,Hello Kitty sits on the chair,0,72,Hello Kitty
+73,Hello Kitty stand on the grassland,0,73,Hello Kitty
+74,Full body shot of Hello Kitty,0,74,Hello Kitty
+75,Bart Simpson sits on the chair,0,75,Bart Simpson
+76,Bart Simpson stand on the grassland,0,76,Bart Simpson
+77,Full body shot of Bart Simpson,0,77,Bart Simpson
+78,Bugs Bunny sits on the chair,0,78,Bugs Bunny
+79,Bugs Bunny stand on the grassland,0,79,Bugs Bunny
+80,Full body shot of Bugs Bunny,0,80,Bugs Bunny
+81,Peter Griffin sits on the chair,0,81,Peter Griffin
+82,Peter Griffin stand on the grassland,0,82,Peter Griffin
+83,Full body shot of Peter Griffin,0,83,Peter Griffin
+84,Barbie sits on the chair,0,84,Barbie
+85,Barbie stand on the grassland,0,85,Barbie
+86,Full body shot of Barbie,0,86,Barbie
+87,Judy Hopps sits on the chair,0,87,Judy Hopps
+88,Judy Hopps stand on the grassland,0,88,Judy Hopps
+89,Full body shot of Judy Hopps,0,89,Judy Hopps
