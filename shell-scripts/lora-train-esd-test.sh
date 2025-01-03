@@ -11,7 +11,7 @@ CUDA_VISIBLE_DEVICES=5 python train-scripts/src/lora_train_esd_test.py \
   --negative_guidance 3 \
   --surrogate_guidance 3 \
   --ddim_steps 30 \
-  --anchor_prompt_path "data/concept_text/cartoon_character_concept.txt" \
+  --anchor_prompt_path "data/concept_text/IP_character_concept.txt" \
   --anchor_batch_size 2 \
   --pl_weight 0.8 \
   --null_weight 0.99 \

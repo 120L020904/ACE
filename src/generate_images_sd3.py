@@ -1,5 +1,6 @@
+import sys
 from typing import List, Union
-
+sys.path.append("/home/yxwei/wangzihao/ACE")
 import numpy as np
 from diffusers import DiffusionPipeline, StableDiffusion3Pipeline
 import torch
@@ -43,7 +44,7 @@ def save_images(pil_images,
                 folder_path,
                 case_number,
                 concept,
-                ):
+                prompts_path):
     for num, im in enumerate(pil_images):
         if 'nudity' not in prompts_path:
             os.makedirs(f"{folder_path}/{concept}", exist_ok=True)
@@ -104,11 +105,10 @@ def generate_images(model_name,
     if not is_SD3:
         dir_ = "CompVis/stable-diffusion-v1-4"  # all the erasure models built on SDv1-4
         pipe = DiffusionPipeline.from_pretrained(dir_, torch_dtype=torch.float16,
-                                                 use_safetensors=True,
-                                                 local_files_only=True)
+                                                 use_safetensors=True)
     else:
         dir_ = "stabilityai/stable-diffusion-3-medium-diffusers"
-        pipe = StableDiffusion3Pipeline.from_pretrained(dir_, torch_dtype=torch.float16, local_files_only=True, )
+        pipe = StableDiffusion3Pipeline.from_pretrained(dir_, torch_dtype=torch.float16,)
     pipe.to(device)
 
     torch_device = device
@@ -154,7 +154,8 @@ def generate_images(model_name,
         save_images(pil_images=pil_images,
                     folder_path=folder_path,
                     case_number=case_number,
-                    concept=concept, )
+                    concept=concept,
+                    prompts_path=prompts_path)
         del pil_images
 
     for concept in concept_set:
@@ -213,4 +214,3 @@ if __name__ == '__main__':
     parser.add_argument('--specific_concept_path', type=str, required=False, default=None)
     args = parser.parse_args()
     main(args)
-
