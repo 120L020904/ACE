@@ -118,13 +118,13 @@ class ACENetwork(nn.Module):
             self.dim,
             self.multiplier,
         )
-        print(f"Create SPM for U-Net: {len(self.unet_spm_layers)} modules.")
+        print(f"Create lora for U-Net: {len(self.unet_spm_layers)} modules.")
 
         spm_names = set()
         for spm_layer in self.unet_spm_layers:
             assert (
                 spm_layer.spm_name not in spm_names
-            ), f"duplicated SPM layer name: {spm_layer.spm_name}. {spm_names}"
+            ), f"duplicated lora layer name: {spm_layer.spm_name}. {spm_names}"
             spm_names.add(spm_layer.spm_name)
 
         for spm_layer in self.unet_spm_layers:

@@ -1,6 +1,6 @@
 import gc
+import sys
 from typing import List, Union, Literal
-from omegaconf import OmegaConf
 import numpy as np
 from transformers import CLIPTextModel, CLIPTokenizer
 from diffusers import AutoencoderKL, UNet2DConditionModel
@@ -10,14 +10,13 @@ from PIL import Image
 import pandas as pd
 import argparse
 import os
-
-from figure_grid import merge_images
+sys.path.append("/home/yxwei/wangzihao/ACE")
+from utils.figure_grid import merge_images
 from models.merge_ace import load_state_dict
-from models.spm import SPMLayer, SPMNetwork
+from models.ace import ACELayer, ACENetwork
 from src.eval.evaluation.eval_util import clip_score, create_meta_json
 from src.eval.evaluation.clip_evaluator import ClipEvaluator
 import train_util
-from mace.fuse_lora_close_form import main as multi_lora_fusion
 
 RES = [8, 16, 32, 64]
 MATCHING_METRICS = Literal[
@@ -103,15 +102,6 @@ def flush():
     gc.collect()
 
 
-def fuse_specific_lora(conf_path, concept):
-    conf = OmegaConf.load(conf_path)
-
-    conf.MACE.multi_concept[0][0][0] = conf.MACE.multi_concept[0][0][0].format(concept)
-    if conf.MACE.domain_preservation_cache_path:
-        conf.MACE.domain_preservation_cache_path = conf.MACE.domain_preservation_cache_path.format(concept)
-    conf.MACE.input_data_dir = conf.MACE.input_data_dir.format(concept)
-    conf.MACE.output_dir = conf.MACE.output_dir.format(concept)
-    multi_lora_fusion(conf.MACE)
 
 
 @torch.no_grad()
@@ -214,11 +204,11 @@ def generate_images(model_name,
         else:
             spm_paths = [lora_path]
         used_multipliers = []
-        network = SPMNetwork(
+        network = ACENetwork(
             unet,
             rank=lora_rank,
             alpha=1.0,
-            module=SPMLayer,
+            module=ACELayer,
         ).to(device, dtype=weight_dtype)
         spms, metadatas = zip(*[
             load_state_dict(spm_model_path, weight_dtype) for spm_model_path in spm_paths
@@ -506,9 +496,6 @@ def main(args):
                         tensor_name_tem = tensor_name.format(concept)
                 else:
                     lora_path_tem = lora_path.format(model_prompt, model_prompt, model_prompt)
-        elif is_Mace:
-            fuse_specific_lora(conf_path, concept)
-            model_name_tem = model_name[0].format(concept)
         elif model_concept_path is not None:
             model_name_tem = model_name[0].format(model_name_dict[concept])
         elif is_SD:
@@ -587,7 +574,7 @@ if __name__ == '__main__':
     parser.add_argument('--fuse_lora_config_path', type=str, required=False, default=None)
     parser.add_argument('--lora_path', type=str, required=False, default=None)
     parser.add_argument('--lora_name', type=str, required=False, default=None)
-    parser.add_argument('--model_path', type=str, required=False, default="")
+    parser.add_argument('--model_path', type=str, required=False, default="CompVis/stable-diffusion-v1-4")
     parser.add_argument('--model_concept_path', type=str, required=False, default=None)
     parser.add_argument('--cab_path', type=str, required=False)
     parser.add_argument('--model_weight_path', type=str, required=False)

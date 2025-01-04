@@ -65,7 +65,7 @@ def generate_images(model_name,
                     num_samples=10,
                     from_case=0,
                     is_SD3=True,
-                    model_path = ""):
+                    specific_concept_set=None):
     '''
     Function to generate images from diffusers code
 
@@ -127,7 +127,8 @@ def generate_images(model_name,
         prompt = str(row.prompt)
         seed = row.evaluation_seed
         case_number = row.case_number
-
+        if row.concept not in specific_concept_set:
+            continue
         if 'nudity' not in prompts_path:
             concept = row.concept
             concept_set.add(concept)
@@ -191,8 +192,8 @@ def main(args):
                     ddim_steps=ddim_steps,
                     num_samples=num_samples,
                     from_case=from_case,
-                    is_SD3=is_SD3
-                    )
+                    is_SD3=is_SD3,
+                    specific_concept_set=specific_concept_set)
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         prog='generateImages',

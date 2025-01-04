@@ -3,8 +3,8 @@ import gc
 import json
 import os
 import pathlib
+import sys
 from typing import Union, List, BinaryIO, Optional, Dict, Callable, Any
-from omegaconf import OmegaConf
 import torch.nn.functional as F
 from torchvision.io import read_image
 
@@ -15,6 +15,7 @@ from diffusers.pipelines.ledits_pp.pipeline_output import LEditsPPDiffusionPipel
 from diffusers.pipelines.ledits_pp.pipeline_leditspp_stable_diffusion import LeditsGaussianSmoothing, \
     LeditsAttentionStore, rescale_noise_cfg
 
+sys.path.append("/home/yxwei/wangzihao/ACE")
 from src.models.ace import ACENetwork, ACELayer
 from utils.figure_grid import merge_images
 from PIL import Image
@@ -29,7 +30,6 @@ from masactrl.diffuser_utils import MasaCtrlPipeline
 from masactrl.masactrl_utils import regiter_attention_editor_diffusers
 from models.merge_ace import load_state_dict
 from src.eval.evaluation.clip_evaluator import ClipEvaluator
-from mace.fuse_lora_close_form import main as multi_lora_fusion
 
 device = 'cuda:0'
 
@@ -38,6 +38,7 @@ def flush():
     torch.cuda.empty_cache()
     gc.collect()
 
+
 def extract_text_encoder_ckpt(ckpt_path):
     full_ckpt = torch.load(ckpt_path)
     new_ckpt = {}
@@ -45,6 +46,7 @@ def extract_text_encoder_ckpt(ckpt_path):
         if 'text_encoder.text_model' in key:
             new_ckpt[key.replace("text_encoder.", "")] = full_ckpt[key]
     return new_ckpt
+
 
 class Inversion:
     def prev_step(self, model_output: Union[torch.FloatTensor, np.ndarray], timestep: int,
@@ -197,17 +199,6 @@ def save_image(
     ndarr = grid.mul(255).add_(0.5).clamp_(0, 255).permute(1, 2, 0).to("cpu", torch.uint8).numpy()
     im = Image.fromarray(ndarr)
     im.save(fp, format=format)
-
-
-def fuse_specific_lora(conf_path, concept):
-    conf = OmegaConf.load(conf_path)
-
-    conf.MACE.multi_concept[0][0][0] = concept
-    if conf.MACE.domain_preservation_cache_path:
-        conf.MACE.domain_preservation_cache_path = conf.MACE.domain_preservation_cache_path.format(concept)
-    conf.MACE.input_data_dir = conf.MACE.input_data_dir.format(concept)
-    conf.MACE.output_dir = conf.MACE.output_dir.format(concept)
-    multi_lora_fusion(conf.MACE)
 
 
 @torch.no_grad()
@@ -652,14 +643,13 @@ def eval_edit(model_name,
               is_SD_v1_4,
               edit_guidance_scale,
               skip,
-              edit_threshold,
               image_size,
               data_path,
               edit_prompt_path=None,
               inversion_prompt=None,
               multipliers=1.0,
               lora_rank=1,
-              specific_concept_set=None,
+              generate_concept_set=None,
               is_Mace=False,
               lora_path=None,
               cab_path=None,
@@ -672,7 +662,6 @@ def eval_edit(model_name,
               negative_prompt=None,
               lora_name=None,
               tensor_name=None,
-              content_path="data/cnt",
               is_inpainting=False,
               mask_prompt="",
               model_weight_path=None,
@@ -798,7 +787,7 @@ def eval_edit(model_name,
         row_edit_list = [row_edit for _, row_edit in df_edit.iterrows()]
     else:
         row_edit_list = [None]
-    for specific_concept in specific_concept_set:
+    for specific_concept in generate_concept_set:
         concepts = set()
 
         for row_edit in row_edit_list:
@@ -972,13 +961,16 @@ def eval_edit(model_name,
                         print(edit_prompt)
                         if is_lora:
                             with network:
-                                edited_image = pipe(prompt=edit_prompt, image=image, mask_image=mask_image,guidance_scale=edit_guidance_scale,generator=generator).images[0]
+                                edited_image = pipe(prompt=edit_prompt, image=image, mask_image=mask_image,
+                                                    guidance_scale=edit_guidance_scale, generator=generator).images[0]
                         else:
-                            edited_image = pipe(prompt=edit_prompt, image=image, mask_image=mask_image,guidance_scale=edit_guidance_scale,generator=generator).images[0]
+                            edited_image = pipe(prompt=edit_prompt, image=image, mask_image=mask_image,
+                                                guidance_scale=edit_guidance_scale, generator=generator).images[0]
                         edited_image_np = np.array(edited_image)
                         mask_image_np = np.array(mask_image)
                         image_np = np.array(image)
-                        edited_image_np_final = mask_image_np/255 * edited_image_np + (1-mask_image_np/255)*image_np
+                        edited_image_np_final = mask_image_np / 255 * edited_image_np + (
+                                    1 - mask_image_np / 255) * image_np
                         edited_image = Image.fromarray(np.uint8(edited_image_np_final))
                     else:
                         if is_DDIMinversion:
@@ -1048,6 +1040,7 @@ def eval_edit(model_name,
     flush()
     return
 
+
 def main(args):
     model_name = args.model_name
     prompts_path = args.prompts_path
@@ -1060,22 +1053,16 @@ def main(args):
     is_Masactrl = args.is_Masactrl
     is_SD_v1_4 = args.is_SD_v1_4
     edit_guidance_scale = args.edit_guidance_scale
-    is_MSG = args.is_MSG
     is_Mace = args.is_Mace
     skip = args.skip
-    edit_threshold = args.edit_threshold
     image_size = args.image_size
     is_StyleID = args.is_StyleID
     data_path = args.data_path
     multipliers = args.multipliers
     lora_rank = args.lora_rank
-    specific_concept = args.specific_concept
     specific_concept_path = args.specific_concept_path
-    conf_path = args.fuse_lora_config_path
     lora_path = args.lora_path
-    cab_path = args.cab_path
     tensor_path = args.tensor_path
-    esd_model_concept_path = args.esd_model_concept_path
     spm_model_concept_path = args.spm_model_concept_path
     is_DDIMinversion = args.is_DDIMinversion
     edit_prompt_path = args.edit_prompt_path
@@ -1089,13 +1076,11 @@ def main(args):
     is_text_encoder = args.is_text_encoder
     use_mask = args.use_mask
     inversion_prompt_list = []
-    specific_concept_set = set()
+    generate_concept_set = set()
     cab_path_tem = None
-    lora_path_tem = None
     tensor_path_tem = None
     is_list = args.is_list
     negative_prompt = args.negative_prompt
-    content_path = args.content_path
     generate_concept_path = args.generate_concept_path
     model_weight_path = args.model_weight_path
     model_path_input = args.model_path
@@ -1104,7 +1089,7 @@ def main(args):
     if generate_concept_path is not None:
         with open(generate_concept_path, "r") as f:
             for line in f:
-                specific_concept_set.add(line.strip())
+                generate_concept_set.add(line.strip())
     if inversion_prompt_path is None:
         inversion_prompt_list = [None]
     else:
@@ -1112,101 +1097,93 @@ def main(args):
             for line in f:
                 inversion_prompt = line.strip()
                 inversion_prompt_list.append(inversion_prompt)
-    for inversion_prompt in inversion_prompt_list:
+    specific_concept_list = []
+    if specific_concept_path is not None:
         with open(specific_concept_path, "r") as f:
             for line in f:
-                lora_name_tem = None
-                tensor_name_tem = None
-                lora_path_tem = None
-                specific_concept = line.strip()
-                if "SD-v1-4" in model_name[0] or ("MACE" in model_name[0] and not is_Mace):
-                    model_name_tem = model_name[0].format(specific_concept)
-                    if tensor_path is not None:
-                        tensor_path_tem = tensor_path.format(specific_concept, specific_concept)
-                    print("SD-v1-4")
-                elif is_Mace:
-                    fuse_specific_lora(conf_path=conf_path, concept=specific_concept)
-                    model_name_tem = model_name[0].format(specific_concept)
-                elif is_lora:
-                    if spm_model_concept_path is not None:
-                        model_concept_dict = {}
-                        with open(spm_model_concept_path, "r") as f_spm:
-                            json_data = json.load(f_spm)
-                        model_prompt = json_data[specific_concept]
-                        if lora_path is None:
-                            lora_name_tem = lora_name.format(specific_concept)
-                            if tensor_name is not None:
-                                tensor_name_tem = tensor_name.format(specific_concept)
-                        else:
-                            lora_path_tem = lora_path.format(model_prompt, model_prompt, model_prompt)
-                        model_name_tem = model_name[0].format(specific_concept)
-                        print(lora_path_tem)
-                    else:
-                        if lora_path is None:
-                            lora_name_tem = lora_name.format(specific_concept)
-                            if tensor_name is not None:
-                                tensor_name_tem = tensor_name.format(specific_concept)
-                        else:
-                            lora_path_tem = lora_path.format(specific_concept, specific_concept, specific_concept)
-
-                        model_name_tem = model_name[0].format(specific_concept)
-                        print(lora_path_tem)
-                elif cab_path is not None:
-                    cab_path_tem = cab_path.format(specific_concept, specific_concept)
-                    print(cab_path_tem)
-                    model_name_tem = model_name[0].format(specific_concept)
-
-                elif esd_model_concept_path is not None:
+                specific_concept_list.append(line.strip())
+    else:
+        specific_concept_list.append(None)
+    for inversion_prompt in inversion_prompt_list:
+        for specific_concept in specific_concept_list:
+            lora_name_tem = None
+            tensor_name_tem = None
+            lora_path_tem = None
+            if "SD-v1-4" in model_name[0] or ("MACE" in model_name[0] and not is_Mace):
+                model_name_tem = model_name[0].format(specific_concept)
+                if tensor_path is not None:
+                    tensor_path_tem = tensor_path.format(specific_concept, specific_concept)
+                print("SD-v1-4")
+            elif is_lora:
+                if spm_model_concept_path is not None:
                     model_concept_dict = {}
-                    with open(specific_concept_path, "r") as f:
-                        json_data = json.load(f)
+                    with open(spm_model_concept_path, "r") as f_spm:
+                        json_data = json.load(f_spm)
                     model_prompt = json_data[specific_concept]
-                    model_name_tem = model_name[0].format(model_prompt)
-                else:
+                    if lora_path is None:
+                        lora_name_tem = lora_name.format(specific_concept)
+                        if tensor_name is not None:
+                            tensor_name_tem = tensor_name.format(specific_concept)
+                    else:
+                        lora_path_tem = lora_path.format(model_prompt, model_prompt, model_prompt)
                     model_name_tem = model_name[0].format(specific_concept)
-                    model_weight_path_tem = model_weight_path.format(specific_concept, specific_concept)
-                if is_specific:
-                    specific_concept_set = set()
-                    specific_concept_set.add(specific_concept)
-                eval_edit(model_name=[model_name_tem],
-                          save_path=save_path,
-                          is_lora=is_lora,
-                          reverse_editing_direction=reverse_editing_direction,
-                          num_samples=num_samples,
-                          prompts_path=prompts_path,
-                          num_inversion_steps=num_inversion_steps,
-                          is_LEDITS=is_LEDITS,
-                          image_size=image_size,
-                          is_Masactrl=is_Masactrl,
-                          inversion_guidance=inversion_guidance,
-                          is_SD_v1_4=is_SD_v1_4,
-                          edit_guidance_scale=edit_guidance_scale,
-                          edit_threshold=edit_threshold,
-                          lora_rank=lora_rank,
-                          data_path=data_path,
-                          multipliers=multipliers,
-                          skip=skip,
-                          lora_path=lora_path_tem,
-                          specific_concept_set=specific_concept_set,
-                          is_DDIMinversion=is_DDIMinversion,
-                          edit_prompt_path=edit_prompt_path,
-                          inversion_prompt=inversion_prompt,
-                          inversion_equal_inference=inversion_equal_inference,
-                          cab_path=cab_path_tem,
-                          use_mask=use_mask,
-                          tensor_path=tensor_path_tem,
-                          sem_embeds_list=is_list,
-                          negative_prompt=negative_prompt,
-                          tensor_name=tensor_name_tem,
-                          lora_name=lora_name_tem,
-                          is_StyleID=is_StyleID,
-                          is_Mace=is_Mace,
-                          model_weight_path=model_weight_path_tem,
-                          is_specific=is_specific,
-                          model_path_input=model_path_input,
-                          is_text_encoder=is_text_encoder,
-                          is_inpainting=is_inpainting,
-                          mask_prompt=mask_prompt)
+                    print(lora_path_tem)
+                else:
+                    if lora_path is None:
+                        lora_name_tem = lora_name.format(specific_concept)
+                        if tensor_name is not None:
+                            tensor_name_tem = tensor_name.format(specific_concept)
+                    else:
+                        lora_path_tem = lora_path.format(specific_concept, specific_concept, specific_concept)
+
+                    model_name_tem = model_name[0].format(specific_concept)
+                    print(lora_path_tem)
+            else:
+                model_name_tem = model_name[0].format(specific_concept)
+                model_weight_path_tem = model_weight_path.format(specific_concept, specific_concept)
+            if is_specific:
+                generate_concept_set = set()
+                generate_concept_set.add(specific_concept)
+            eval_edit(model_name=[model_name_tem],
+                      save_path=save_path,
+                      is_lora=is_lora,
+                      reverse_editing_direction=reverse_editing_direction,
+                      num_samples=num_samples,
+                      prompts_path=prompts_path,
+                      num_inversion_steps=num_inversion_steps,
+                      is_LEDITS=is_LEDITS,
+                      image_size=image_size,
+                      is_Masactrl=is_Masactrl,
+                      inversion_guidance=inversion_guidance,
+                      is_SD_v1_4=is_SD_v1_4,
+                      edit_guidance_scale=edit_guidance_scale,
+                      lora_rank=lora_rank,
+                      data_path=data_path,
+                      multipliers=multipliers,
+                      skip=skip,
+                      lora_path=lora_path_tem,
+                      generate_concept_set=generate_concept_set,
+                      is_DDIMinversion=is_DDIMinversion,
+                      edit_prompt_path=edit_prompt_path,
+                      inversion_prompt=inversion_prompt,
+                      inversion_equal_inference=inversion_equal_inference,
+                      cab_path=cab_path_tem,
+                      use_mask=use_mask,
+                      tensor_path=tensor_path_tem,
+                      sem_embeds_list=is_list,
+                      negative_prompt=negative_prompt,
+                      tensor_name=tensor_name_tem,
+                      lora_name=lora_name_tem,
+                      is_StyleID=is_StyleID,
+                      is_Mace=is_Mace,
+                      model_weight_path=model_weight_path_tem,
+                      is_specific=is_specific,
+                      model_path_input=model_path_input,
+                      is_text_encoder=is_text_encoder,
+                      is_inpainting=is_inpainting,
+                      mask_prompt=mask_prompt)
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         prog='generateImages',
@@ -1225,14 +1202,12 @@ if __name__ == '__main__':
                         default=False)
     parser.add_argument('--is_Mace', action='store_true', required=False, default=False)
     parser.add_argument('--is_StyleID', action='store_true', required=False, default=False)
-    parser.add_argument('--is_MSG', action='store_true', help='whether use LEDITS++', required=False, default=False)
     parser.add_argument('--is_DDIMinversion', action='store_true', required=False, default=False)
     parser.add_argument('--reverse_editing_direction', action='store_true', help='whether use LEDITS++', required=False,
                         default=False)
     parser.add_argument('--edit_guidance_scale', type=float, required=False, default=10)
     parser.add_argument('--inversion_guidance_scale', type=float, required=False, default=1)
     parser.add_argument('--skip', type=float, required=False, default=0.1)
-    parser.add_argument('--edit_threshold', type=float, required=False, default=0.9)
     parser.add_argument('--is_SD_v1_4', action='store_true', required=False, default=False)
     parser.add_argument('--inversion_equal_inference', action='store_true', required=False, default=False)
     parser.add_argument('--image_size', type=int, required=False, default=512)
@@ -1243,7 +1218,6 @@ if __name__ == '__main__':
     parser.add_argument('--specific_concept_path', type=str, required=False, default=None)
     parser.add_argument('--fuse_lora_config_path', type=str, required=False, default=None)
     parser.add_argument('--lora_path', type=str, required=False, default=None)
-    parser.add_argument('--cab_path', type=str, required=False, default=None)
     parser.add_argument('--lora_name', type=str, required=False, default=None)
     parser.add_argument('--tensor_name', type=str, required=False, default=None)
     parser.add_argument('--esd_model_concept_path', type=str, required=False, default=None)
@@ -1259,7 +1233,7 @@ if __name__ == '__main__':
     parser.add_argument('--mask_prompt', type=str, required=False, default=None)
     parser.add_argument('--is_inpainting', action='store_true', required=False, default=False)
     parser.add_argument('--model_weight_path', type=str, required=False, default=None)
-    parser.add_argument('--model_path', type=str, required=False, default="")
+    parser.add_argument('--model_path', type=str, required=False, default="CompVis/stable-diffusion-v1-4")
     parser.add_argument('--is_text_encoder', action='store_true', required=False, default=False)
     args = parser.parse_args()
     main(args)

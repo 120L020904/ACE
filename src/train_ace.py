@@ -14,7 +14,6 @@ import torch
 import matplotlib.pyplot as plt
 import train_util
 from models.ace import ACENetwork, ACELayer
-from ptp import ptp
 from typing import List
 import torch.nn.functional as F
 from generate_images_lora import get_images
@@ -166,24 +165,6 @@ def diffusion_to_get_x_t(
     return x_t, score_result
 
 
-def get_attention_map(prompts, tokenizer, attention_store: ptp.AttentionStore, res: int, from_where: List[str],
-                      select: int = 0):
-    tokens = tokenizer.encode(prompts[select])
-    decoder = tokenizer.decode
-    attention_maps = ptp.aggregate_attention(prompts, attention_store, res, from_where, True, select)
-    map_result = []
-    for i in range(len(tokens)):
-        # print(f"attention_maps is {attention_maps.shape}")
-        maps = attention_maps[:, :, i]
-        # N=1, C=4
-        maps = maps.repeat(1, 4, 1, 1)
-        maps = F.interpolate(maps, size=torch.Size([64, 64]), mode='bicubic')
-        maps = maps / maps.max()
-        if 0 < i < len(tokens) - 1:
-            map_result.append(maps)
-    map_result = torch.stack(map_result)
-    map_result = torch.mean(map_result, dim=0)
-    return map_result
 
 
 def train_esd(prompt,
@@ -781,10 +762,8 @@ if __name__ == '__main__':
                         required=False, default=3)
     parser.add_argument('--iterations', help='iterations used to train', type=int, required=False, default=1000)
     parser.add_argument('--lr', help='learning rate used to train', type=float, required=False, default=1e-5)
-    parser.add_argument('--config_path', help='config path for stable diffusion v1-4 inference', type=str,
-                        required=False, default='configs/stable-diffusion/v1-inference.yaml')
     parser.add_argument('--model_path', help='ckpt path for stable diffusion v1-4', type=str, required=False,
-                        default='')
+                        default='CompVis/stable-diffusion-v1-4')
     parser.add_argument('--diffusers_config_path', help='diffusers unet config json path', type=str, required=False,
                         default='unet-config/diffusers_unet_config.json')
     parser.add_argument('--devices', help='cuda devices to train on', type=str, required=False, default='0,0')

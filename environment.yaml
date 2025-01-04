@@ -46,6 +46,7 @@ dependencies:
     - dadaptation==3.1
     - diffusers==0.30.1
     - docker-pycreds==0.4.0
+    - einops==0.8.0
     - embedding-reader==1.5.1
     - filelock==3.9.0
     - fire==0.5.0
@@ -140,3 +141,4 @@ dependencies:
     - xformers==0.0.22
     - yarl==1.9.4
     - zipp==3.17.0
+    - git+https://github.com/openai/CLIP.git

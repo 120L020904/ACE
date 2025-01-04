@@ -9,48 +9,10 @@ from torch.utils.data import Dataset
 from tqdm import tqdm
 
 import clip
-
-sys.path.append("train-scripts/src/evaluation")
+sys.path.append("/home/yxwei/wangzihao/ACE/src/eval/evaluation")
 from eval_util import clip_eval_by_image, create_meta_json
 from evaluator import Evaluator
 
-
-# class ClipTemplateDataset(GenerationDataset):
-#     def __init__(
-#             self,
-#             concepts: list[str],
-#             save_folder: str = "benchmark/generated_imgs/",
-#             base_cfg: GenerationConfig = GenerationConfig(),
-#             num_templates: int = 80,
-#             num_images_per_template: int = 10,
-#             **kwargs
-#     ):
-#         assert 1 <= num_templates <= 80, "num_templates should be in range(1, 81)."
-#         meta = {}
-#         self.data = []
-#         for concept in concepts:
-#             meta[concept] = {}
-#             sampled_template_indices = random.sample(range(80), num_templates)
-#             for template_idx in sampled_template_indices:
-#                 # construct cfg
-#                 cfg = base_cfg.copy()
-#                 cfg.prompts = [imagenet_templates[template_idx].format(concept)]
-#                 cfg.generate_num = num_images_per_template
-#                 cfg.save_path = os.path.join(
-#                     save_folder,
-#                     concept,
-#                     f"{template_idx}" + "_{}.png",
-#                 )
-#                 self.data.append(cfg.dict())
-#                 # construct meta
-#                 meta[concept][template_idx] = [
-#                     cfg.save_path.format(i) for i in range(num_images_per_template)
-#                 ]
-#         os.makedirs(save_folder, exist_ok=True)
-#         meta_path = os.path.join(save_folder, "meta.json")
-#         print(f"Saving metadata to {meta_path} ...")
-#         with open(meta_path, "w") as f:
-#             json.dump(meta, f)
 
 class CocoDataset(Dataset):
     def __init__(self, save_path):
@@ -59,12 +21,15 @@ class CocoDataset(Dataset):
         for image_name in self.image_names:
             image_path = os.path.join(save_path, image_name)
             self.image_paths.append(image_path)
+
     def __len__(self):
         return len(self.image_names)
 
     def __getitem__(self, index):
         image_path = self.image_names[index % len(self.image_paths)]
         return image_path
+
+
 class ClipEvaluator(Evaluator):
     """
     Evaluation for CLIP-protocol accepts `save_folder` as a *JSON file* with the following format:
@@ -101,7 +66,7 @@ class ClipEvaluator(Evaluator):
         self.image_concept = image_concept
         self.prompt_path = prompt_path
         self.method = method
-        self.model,_ = clip.load("ViT-B/32", device="cuda")
+        self.model, _ = clip.load("ViT-B/32", device="cuda")
         if self.method != "coco":
             if given_concept is None or self.method == "concept_relation":
                 self.img_metadata = json.load(open(os.path.join(self.save_folder, "meta.json")))
@@ -331,7 +296,8 @@ def coco_prompt_relation(args):
     output_path = args.output_path
     for image_concept in image_concept_list:
         evaluator = ClipEvaluator(
-            prompt_path=prompts_path,save_folder=save_path.format(image_concept), output_path=output_path.format(image_concept), method=args.method
+            prompt_path=prompts_path, save_folder=save_path.format(image_concept),
+            output_path=output_path.format(image_concept), method=args.method
         )
         evaluator.evaluation_30k()
 
