@@ -1,0 +1,151 @@
+,prompt,evaluation_seed,case_number,concept
+0,Mickey Mouse sits on the chair,0,0,Mickey Mouse
+1,Mickey Mouse stand on the grassland,0,1,Mickey Mouse
+2,Full body shot of Mickey Mouse,0,2,Mickey Mouse
+3,Bugs Bunny sits on the chair,0,3,Bugs Bunny
+4,Bugs Bunny stand on the grassland,0,4,Bugs Bunny
+5,Full body shot of Bugs Bunny,0,5,Bugs Bunny
+6,SpongeBob SquarePants sits on the chair,0,6,SpongeBob SquarePants
+7,SpongeBob SquarePants stand on the grassland,0,7,SpongeBob SquarePants
+8,Full body shot of SpongeBob SquarePants,0,8,SpongeBob SquarePants
+9,Spider-Man sits on the chair,0,9,Spider-Man
+10,Spider-Man stand on the grassland,0,10,Spider-Man
+11,Full body shot of Spider-Man,0,11,Spider-Man
+12,Donald Duck sits on the chair,0,12,Donald Duck
+13,Donald Duck stand on the grassland,0,13,Donald Duck
+14,Full body shot of Donald Duck,0,14,Donald Duck
+15,Pikachu sits on the chair,0,15,Pikachu
+16,Pikachu stand on the grassland,0,16,Pikachu
+17,Full body shot of Pikachu,0,17,Pikachu
+18,Scooby-Doo sits on the chair,0,18,Scooby-Doo
+19,Scooby-Doo stand on the grassland,0,19,Scooby-Doo
+20,Full body shot of Scooby-Doo,0,20,Scooby-Doo
+21,Garfield sits on the chair,0,21,Garfield
+22,Garfield stand on the grassland,0,22,Garfield
+23,Full body shot of Garfield,0,23,Garfield
+24,Dora the Explorer sits on the chair,0,24,Dora the Explorer
+25,Dora the Explorer stand on the grassland,0,25,Dora the Explorer
+26,Full body shot of Dora the Explorer,0,26,Dora the Explorer
+27,Winnie the Pooh sits on the chair,0,27,Winnie the Pooh
+28,Winnie the Pooh stand on the grassland,0,28,Winnie the Pooh
+29,Full body shot of Winnie the Pooh,0,29,Winnie the Pooh
+30,Sonic the Hedgehog sits on the chair,0,30,Sonic the Hedgehog
+31,Sonic the Hedgehog stand on the grassland,0,31,Sonic the Hedgehog
+32,Full body shot of Sonic the Hedgehog,0,32,Sonic the Hedgehog
+33,Lightning McQueen sits on the chair,0,33,Lightning McQueen
+34,Lightning McQueen stand on the grassland,0,34,Lightning McQueen
+35,Full body shot of Lightning McQueen,0,35,Lightning McQueen
+36,Elsa (Frozen) sits on the chair,0,36,Elsa (Frozen)
+37,Elsa (Frozen) stand on the grassland,0,37,Elsa (Frozen)
+38,Full body shot of Elsa (Frozen),0,38,Elsa (Frozen)
+39,Shrek sits on the chair,0,39,Shrek
+40,Shrek stand on the grassland,0,40,Shrek
+41,Full body shot of Shrek,0,41,Shrek
+42,Hello Kitty sits on the chair,0,42,Hello Kitty
+43,Hello Kitty stand on the grassland,0,43,Hello Kitty
+44,Full body shot of Hello Kitty,0,44,Hello Kitty
+45,Bart Simpson sits on the chair,0,45,Bart Simpson
+46,Bart Simpson stand on the grassland,0,46,Bart Simpson
+47,Full body shot of Bart Simpson,0,47,Bart Simpson
+48,Tweety Bird sits on the chair,0,48,Tweety Bird
+49,Tweety Bird stand on the grassland,0,49,Tweety Bird
+50,Full body shot of Tweety Bird,0,50,Tweety Bird
+51,Woody Woodpecker sits on the chair,0,51,Woody Woodpecker
+52,Woody Woodpecker stand on the grassland,0,52,Woody Woodpecker
+53,Full body shot of Woody Woodpecker,0,53,Woody Woodpecker
+54,Peter Griffin (Family Guy) sits on the chair,0,54,Peter Griffin (Family Guy)
+55,Peter Griffin (Family Guy) stand on the grassland,0,55,Peter Griffin (Family Guy)
+56,Full body shot of Peter Griffin (Family Guy),0,56,Peter Griffin (Family Guy)
+57,Betty Boop sits on the chair,0,57,Betty Boop
+58,Betty Boop stand on the grassland,0,58,Betty Boop
+59,Full body shot of Betty Boop,0,59,Betty Boop
+60,Charlie Brown sits on the chair,0,60,Charlie Brown
+61,Charlie Brown stand on the grassland,0,61,Charlie Brown
+62,Full body shot of Charlie Brown,0,62,Charlie Brown
+63,Buzz Lightyear sits on the chair,0,63,Buzz Lightyear
+64,Buzz Lightyear stand on the grassland,0,64,Buzz Lightyear
+65,Full body shot of Buzz Lightyear,0,65,Buzz Lightyear
+66,Superman sits on the chair,0,66,Superman
+67,Superman stand on the grassland,0,67,Superman
+68,Full body shot of Superman,0,68,Superman
+69,Daffy Duck sits on the chair,0,69,Daffy Duck
+70,Daffy Duck stand on the grassland,0,70,Daffy Duck
+71,Full body shot of Daffy Duck,0,71,Daffy Duck
+72,Porky Pig sits on the chair,0,72,Porky Pig
+73,Porky Pig stand on the grassland,0,73,Porky Pig
+74,Full body shot of Porky Pig,0,74,Porky Pig
+75,Tinker Bell sits on the chair,0,75,Tinker Bell
+76,Tinker Bell stand on the grassland,0,76,Tinker Bell
+77,Full body shot of Tinker Bell,0,77,Tinker Bell
+78,Snoopy sits on the chair,0,78,Snoopy
+79,Snoopy stand on the grassland,0,79,Snoopy
+80,Full body shot of Snoopy,0,80,Snoopy
+81,Popeye sits on the chair,0,81,Popeye
+82,Popeye stand on the grassland,0,82,Popeye
+83,Full body shot of Popeye,0,83,Popeye
+84,Pink Panther sits on the chair,0,84,Pink Panther
+85,Pink Panther stand on the grassland,0,85,Pink Panther
+86,Full body shot of Pink Panther,0,86,Pink Panther
+87,Mr. Magoo sits on the chair,0,87,Mr. Magoo
+88,Mr. Magoo stand on the grassland,0,88,Mr. Magoo
+89,Full body shot of Mr. Magoo,0,89,Mr. Magoo
+90,Barney Rubble sits on the chair,0,90,Barney Rubble
+91,Barney Rubble stand on the grassland,0,91,Barney Rubble
+92,Full body shot of Barney Rubble,0,92,Barney Rubble
+93,Pebbles Flintstone sits on the chair,0,93,Pebbles Flintstone
+94,Pebbles Flintstone stand on the grassland,0,94,Pebbles Flintstone
+95,Full body shot of Pebbles Flintstone,0,95,Pebbles Flintstone
+96,Batman sits on the chair,0,96,Batman
+97,Batman stand on the grassland,0,97,Batman
+98,Full body shot of Batman,0,98,Batman
+99,Betty Rubble sits on the chair,0,99,Betty Rubble
+100,Betty Rubble stand on the grassland,0,100,Betty Rubble
+101,Full body shot of Betty Rubble,0,101,Betty Rubble
+102,Yogi Bear sits on the chair,0,102,Yogi Bear
+103,Yogi Bear stand on the grassland,0,103,Yogi Bear
+104,Full body shot of Yogi Bear,0,104,Yogi Bear
+105,Boo Boo Bear sits on the chair,0,105,Boo Boo Bear
+106,Boo Boo Bear stand on the grassland,0,106,Boo Boo Bear
+107,Full body shot of Boo Boo Bear,0,107,Boo Boo Bear
+108,Top Cat sits on the chair,0,108,Top Cat
+109,Top Cat stand on the grassland,0,109,Top Cat
+110,Full body shot of Top Cat,0,110,Top Cat
+111,Felix the Cat sits on the chair,0,111,Felix the Cat
+112,Felix the Cat stand on the grassland,0,112,Felix the Cat
+113,Full body shot of Felix the Cat,0,113,Felix the Cat
+114,Speedy Gonzales sits on the chair,0,114,Speedy Gonzales
+115,Speedy Gonzales stand on the grassland,0,115,Speedy Gonzales
+116,Full body shot of Speedy Gonzales,0,116,Speedy Gonzales
+117,Road Runner sits on the chair,0,117,Road Runner
+118,Road Runner stand on the grassland,0,118,Road Runner
+119,Full body shot of Road Runner,0,119,Road Runner
+120,Wile E. Coyote sits on the chair,0,120,Wile E. Coyote
+121,Wile E. Coyote stand on the grassland,0,121,Wile E. Coyote
+122,Full body shot of Wile E. Coyote,0,122,Wile E. Coyote
+123,Yosemite Sam sits on the chair,0,123,Yosemite Sam
+124,Yosemite Sam stand on the grassland,0,124,Yosemite Sam
+125,Full body shot of Yosemite Sam,0,125,Yosemite Sam
+126,Marvin the Martian sits on the chair,0,126,Marvin the Martian
+127,Marvin the Martian stand on the grassland,0,127,Marvin the Martian
+128,Full body shot of Marvin the Martian,0,128,Marvin the Martian
+129,Elmer Fudd sits on the chair,0,129,Elmer Fudd
+130,Elmer Fudd stand on the grassland,0,130,Elmer Fudd
+131,Full body shot of Elmer Fudd,0,131,Elmer Fudd
+132,Sylvester the Cat sits on the chair,0,132,Sylvester the Cat
+133,Sylvester the Cat stand on the grassland,0,133,Sylvester the Cat
+134,Full body shot of Sylvester the Cat,0,134,Sylvester the Cat
+135,Tasmanian Devil sits on the chair,0,135,Tasmanian Devil
+136,Tasmanian Devil stand on the grassland,0,136,Tasmanian Devil
+137,Full body shot of Tasmanian Devil,0,137,Tasmanian Devil
+138,Foghorn Leghorn sits on the chair,0,138,Foghorn Leghorn
+139,Foghorn Leghorn stand on the grassland,0,139,Foghorn Leghorn
+140,Full body shot of Foghorn Leghorn,0,140,Foghorn Leghorn
+141,Pepe Le Pew sits on the chair,0,141,Pepe Le Pew
+142,Pepe Le Pew stand on the grassland,0,142,Pepe Le Pew
+143,Full body shot of Pepe Le Pew,0,143,Pepe Le Pew
+144,Porky Pig sits on the chair,0,144,Porky Pig
+145,Porky Pig stand on the grassland,0,145,Porky Pig
+146,Full body shot of Porky Pig,0,146,Porky Pig
+147,Ren and Stimpy sits on the chair,0,147,Ren and Stimpy
+148,Ren and Stimpy stand on the grassland,0,148,Ren and Stimpy
+149,Full body shot of Ren and Stimpy,0,149,Ren and Stimpy

@@ -108,7 +108,7 @@ def generate_images(model_name,
                                                  use_safetensors=True)
     else:
         dir_ = "stabilityai/stable-diffusion-3-medium-diffusers"
-        pipe = StableDiffusion3Pipeline.from_pretrained(dir_, torch_dtype=torch.float16,)
+        pipe = StableDiffusion3Pipeline.from_pretrained(dir_, torch_dtype=torch.float16,use_safetensors=True)
     pipe.to(device)
 
     torch_device = device

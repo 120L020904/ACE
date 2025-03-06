@@ -1,5 +1,5 @@
 #! /bin/bash
-export CSV="IP_character"
+export CSV="IP_character_50"
 export PRE=""
 export ADD_NAME=""
 export CSV_FOLDER=$CSV$ADD_NAME
@@ -8,7 +8,7 @@ CUDA_VISIBLE_DEVICES=0 python src/eval/evaluation/clip_evaluator.py \
   --csv_path="data/concept_csv/$CSV.csv" \
   --save_folder="evaluation-outputs/$CSV_FOLDER/$MODEL" \
   --output_path="evaluation-outputs/$CSV_FOLDER/$MODEL" \
-  --num_samples=3 \
+  --num_samples=5 \
   --csv_name="$CSV" \
   --add_name=$ADD_NAME \
   --method "concept_relation" \

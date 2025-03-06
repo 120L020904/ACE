@@ -1,10 +1,33 @@
-# ACE: Anti-Editing Concept Erasure in Text-to-Image Models
+<div align="center">
+<h2>ACE: Anti-Editing Concept Erasure in Text-to-Image Models</h2>
+<a href="https://arxiv.org/abs/2501.01633"><img src="https://img.shields.io/badge/Paper-Arxiv-red"></a>
 
-This respository contains the code for paper ACE: Anti-Editing Concept Erasure in Text-to-Image Models.
+[Zihao Wang](https://scholar.google.com.hk/citations?user=rNsMDCUAAAAJ&hl=zh-CN)<sup>1</sup> |
+[Yuxiang Wei]<sup>1</sup> |
+[Fan Li]<sup>2</sup> |
+[Renjing Pei]<sup>2</sup> |
+[Hang Xu]<sup>2</sup> |
+[Wangmeng Zuo]<sup>1,2</sup>
 
-## Setup
+<sup>1</sup>Harbin Institute of Technology, <sup>2</sup>Huawei Nuoya Lab
+</div>
 
-### Dependency Installation
+:star: This respository contains the code for paper **ACE: Anti-Editing Concept Erasure in Text-to-Image Models.** If ACE is helpful to your images or projects, please help star this repo. Thanks! :hugs:
+
+## Overview Framework
+![PiSA-SR](figs/ACE.png)
+We provide protection against both unconditional noise and conditional noise so that even in editing tasks without target concepts in the input, the generated classifier-free guidance noise can filter out the target concepts that need to be erased.
+## Visual Results
+### Edit Results
+![PiSA-SR](figs/edit_qualitive.png)
+We use [LEDITS++](https://github.com/ml-research/ledits_pp) to evaluate concept erasing effect in edit task.
+### Generation Results
+![PiSA-SR](figs/edit_qualitive_generate.png)
+
+### Comparisons with Other Concept Erase Methods
+![PiSA-SR](figs/edit_qualitive_comparisions.png)
+
+## Dependency Installation
 You can create virtual environment use following command.
 ```bash
 git clone https://github.com/120L020904/ACE.git
@@ -12,6 +35,7 @@ cd ACE
 conda env create -f environment.yaml
 ```
 
+## Quick Start
 
 ### Preparation
 First prepare images about test concept, which will be used to calculate the relevance between the testing concept and the erased concept.  
@@ -75,7 +99,7 @@ CUDA_VISIBLE_DEVICES=0 python src/lora_train_esd_test.py \
   --no_certain_sur 
 ```
 
-### Test
+### Evaluation
 The command for test of generating is:
 ```bash
 #! /bin/bash
@@ -135,3 +159,16 @@ Checkpoints are coming soon.
 
 In this code we refer to the following codebase: [Diffusers](https://github.com/huggingface/diffusers) and [SPM](https://lyumengyao.github.io/projects/spm). Great thanks to them!
 
+### Citations
+If you like or use our work please cite us:
+
+```
+@article{wang2025ace,
+  title={ACE: Anti-Editing Concept Erasure in Text-to-Image Models},
+  author={Wang, Zihao and Wei, Yuxiang and Li, Fan and Pei, Renjing and Xu, Hang and Zuo, Wangmeng},
+  journal={arXiv preprint arXiv:2501.01633},
+  year={2025}
+}
+```
+### Contact
+If you have any questions, please contact: 24s003077@stu.hit.edu.cn
