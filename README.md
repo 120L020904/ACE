@@ -9,7 +9,7 @@
 [Hang Xu](https://scholar.google.com.hk/citations?user=J_8TX6sAAAAJ&hl=en)<sup>2</sup> |
 [Wangmeng Zuo](https://scholar.google.com/citations?user=rUOpCEYAAAAJ&hl=en)<sup>1,3</sup>
 
-<sup>1</sup>Harbin Institute of Technology, <sup>2</sup>Huawei Noah’s Ark Lab <sup>3</sup>Pazhou Lab (Huangpu)
+<sup>1</sup>Harbin Institute of Technology, <sup>2</sup>Huawei Noah’s Ark Lab, <sup>3</sup>Pazhou Lab (Huangpu)
 </div>
 
 :star: This respository contains the code for paper **ACE: Anti-Editing Concept Erasure in Text-to-Image Models.** If ACE is helpful to your images or projects, please help star this repo. Thanks! :hugs:
