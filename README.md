@@ -3,13 +3,13 @@
 <a href="https://arxiv.org/abs/2501.01633"><img src="https://img.shields.io/badge/Paper-Arxiv-red"></a>
 
 [Zihao Wang](https://scholar.google.com.hk/citations?user=rNsMDCUAAAAJ&hl=zh-CN)<sup>1</sup> |
-[Yuxiang Wei]<sup>1</sup> |
-[Fan Li]<sup>2</sup> |
-[Renjing Pei]<sup>2</sup> |
-[Hang Xu]<sup>2</sup> |
-[Wangmeng Zuo]<sup>1,2</sup>
+[Yuxiang Wei](https://scholar.google.com/citations?user=hORhL7YAAAAJ&hl=en&oi=ao)<sup>1</sup> |
+[Fan Li](https://scholar.google.com/citations?hl=en&user=DRnHw6sAAAAJ)<sup>2</sup> |
+[Renjing Pei](https://orcid.org/0000-0001-7513-6576)<sup>2</sup> |
+[Hang Xu](https://scholar.google.com.hk/citations?user=J_8TX6sAAAAJ&hl=en)<sup>2</sup> |
+[Wangmeng Zuo](https://scholar.google.com/citations?user=rUOpCEYAAAAJ&hl=en)<sup>1,3</sup>
 
-<sup>1</sup>Harbin Institute of Technology, <sup>2</sup>Huawei Nuoya Lab
+<sup>1</sup>Harbin Institute of Technology, <sup>2</sup>Huawei Noah’s Ark Lab <sup>3</sup>Pazhou Lab (Huangpu)
 </div>
 
 :star: This respository contains the code for paper **ACE: Anti-Editing Concept Erasure in Text-to-Image Models.** If ACE is helpful to your images or projects, please help star this repo. Thanks! :hugs:
